@@ -1,0 +1,42 @@
+html, body {
+    margin: 0;
+}
+
+#demo_container {
+    position: relative;
+}
+
+.surface {
+    height: calc(100vh / 2);
+}
+
+.acrylic {
+    height: 300px;
+    left: calc((765px - 500px) / 2);
+    overflow: hidden;
+    position: absolute;
+    top: calc((50vh - 300px) / 2);
+    width: 500px;
+}
+
+    .acrylic::before,
+    .acrylic::after {
+        content: "";
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
+
+    .acrylic::before {
+        filter: url("#noiseFilter");
+        mix-blend-mode: multiply;
+    }
+
+    .acrylic::after {
+        background-color: rgb(255 255 255 / 70%);
+        -webkit-backdrop-filter: saturate(180%) blur(60px);
+        backdrop-filter: saturate(180%) blur(60px);
+        mix-blend-mode: saturation;
+    }
